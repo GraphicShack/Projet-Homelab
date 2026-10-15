@@ -66,7 +66,19 @@ This repository never stores real passwords, private keys, API secrets, Tailscal
 
 ## Screenshots
 
-Sanitized screenshots are prepared separately so no credentials, tokens, account identifiers, or remote-access addresses are published accidentally.
+The screenshots below are sanitized for public sharing. Credentials, API tokens, account identifiers, certificates, and remote-access addresses are not exposed.
+
+### Proxmox VE
+
+![Proxmox VE dashboard](screenshots/proxmox-dashboard.png)
+
+### AdGuard Home
+
+![AdGuard Home dashboard](screenshots/adguard-home-dashboard.png)
+
+### Nginx Proxy Manager
+
+![Nginx Proxy Manager dashboard](screenshots/nginx-proxy-manager-dashboard.png)
 
 ## Next steps
 
