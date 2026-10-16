@@ -31,3 +31,9 @@ Homarr provides a centralized dashboard for homelab services.
 **Fix:** Created a dedicated Proxmox API user/token and granted read-only `PVEAuditor` permissions.
 
 **Lesson learned:** Authentication and authorization are separate. A valid token can still fail if it lacks permission to read the requested resources.
+
+## Authorization troubleshooting
+
+![Sanitized Homarr Proxmox authorization troubleshooting](../screenshots/homarr-proxmox-authorization-redacted.jpg)
+
+At this point, certificate trust was already fixed. The remaining error therefore narrowed the problem down to API authorization. The Proxmox URL, user, token ID, and API secret are blacked out in the public screenshot.
