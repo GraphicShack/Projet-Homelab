@@ -1,20 +1,54 @@
-# Proxmox Homelab
+<div align="center">
 
-## Table des matières / Table of contents
+# 🖥️ Proxmox Homelab
 
-- [🇨🇦 Français](#francais)
-- [🇬🇧 English](#english)
-- [Physical build / Montage physique](docs/00-physical-build.md)
-- [Architecture](docs/01-architecture.md)
-- [Proxmox VE](docs/02-proxmox.md)
-- [Ubuntu Server + Samba](docs/03-ubuntu-samba.md)
-- [Tailscale](docs/04-tailscale.md)
-- [AdGuard Home](docs/05-adguard-home.md)
-- [Nginx Proxy Manager](docs/06-nginx-proxy-manager.md)
-- [Homarr](docs/07-homarr.md)
-- [Windows 11 VM](docs/08-windows-vm.md)
-- [Troubleshooting](docs/09-troubleshooting.md)
-- [Project journal / Journal du projet](JOURNAL.md)
+**Virtualization · Linux · Networking · Self-hosting · Cybersecurity**
+
+`Proxmox VE` · `LXC` · `Docker` · `Samba` · `Tailscale` · `AdGuard Home` · `Nginx Proxy Manager` · `Homarr`
+
+[🇨🇦 Français](#francais) • [🇬🇧 English](#english)
+
+</div>
+
+```text
+                         ┌───────────────────────┐
+                         │       INTERNET        │
+                         └───────────┬───────────┘
+                                     │
+                               ┌─────▼─────┐
+                               │  ROUTER   │
+                               └─────┬─────┘
+                                     │ Wi-Fi
+                          ┌──────────▼──────────┐
+                          │ REPEATER / BRIDGE  │
+                          └──────────┬──────────┘
+                                     │ Ethernet
+                    ┌────────────────▼────────────────┐
+                    │          PROXMOX VE HOST         │
+                    ├──────────────────────────────────┤
+                    │  LXC  Ubuntu Server              │── Samba / Tailscale
+                    │  LXC  AdGuard Home               │── DNS filtering
+                    │  LXC  Nginx Proxy Manager        │── Reverse proxy
+                    │  LXC  Homarr                     │── Dashboard
+                    │  VM   Windows 11                 │── Lab environment
+                    └──────────────────────────────────┘
+```
+
+> **Projet évolutif :** ce repo documente autant ce qui fonctionne que les problèmes rencontrés, les diagnostics et les fixes.
+
+## 🧭 Table des matières / Table of contents
+
+| Projet | Services & documentation |
+|---|---|
+| [🔧 Montage physique / Physical build](docs/00-physical-build.md) | [🖥️ Proxmox VE](docs/02-proxmox.md) |
+| [🏗️ Architecture](docs/01-architecture.md) | [📁 Ubuntu Server + Samba](docs/03-ubuntu-samba.md) |
+| [📓 Journal du projet / Project journal](JOURNAL.md) | [🔐 Tailscale](docs/04-tailscale.md) |
+| [🧰 Troubleshooting](docs/09-troubleshooting.md) | [🛡️ AdGuard Home](docs/05-adguard-home.md) |
+|  | [🌐 Nginx Proxy Manager](docs/06-nginx-proxy-manager.md) |
+|  | [📊 Homarr](docs/07-homarr.md) |
+|  | [🪟 Windows 11 VM](docs/08-windows-vm.md) |
+
+---
 
 <a id="francais"></a>
 ## 🇨🇦 Français
