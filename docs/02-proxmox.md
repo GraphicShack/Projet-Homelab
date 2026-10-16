@@ -1,5 +1,52 @@
 # Proxmox VE
 
+## 🇫🇷 Français
+
+Proxmox VE est la base du lab. Il gère l’interface web, les LXC containers, les VMs, le storage et les snapshots.
+
+## Configuration principale
+
+- hardware virtualization activée dans le BIOS;
+- Linux bridge pour le networking des guests;
+- LXC pour les services légers qui roulent en continu;
+- VMs quand un OS complet est plus logique.
+
+## Problèmes rencontrés
+
+### 1. Hardware virtualization pas activée
+
+**Symptôme :** Proxmox disait que hardware-accelerated KVM n’était pas disponible.
+
+**Ce que ça voulait dire :** le CPU supportait la virtualisation, mais Intel VT-x / VMX était désactivé dans le BIOS.
+
+**Fix :** activation de Intel VMX / VT-x puis reboot.
+
+**Ce que j’ai retenu :** avant de chercher un problème dans Proxmox, vérifier la virtualisation directement dans le BIOS.
+
+### 2. Networking Proxmox un peu mêlant au début
+
+**Symptôme :** l’interface web était difficile à joindre après l’installation.
+
+**Ce que ça voulait dire :** une mauvaise static IP, gateway, subnet ou bridge suffit pour rendre Proxmox inaccessible même si le host roule correctement.
+
+**Fix :** vérification du gateway, subnet, management IP et bridge/interface.
+
+**Checks utiles :**
+
+```bash
+ip -br link
+ip -br addr
+ip route
+```
+
+**Ce que j’ai retenu :** quand un host est inaccessible, vérifier dans cet ordre : interface, IP, route.
+
+---
+
+## 🇬🇧 English
+
+# Proxmox VE
+
 Proxmox VE is the base of the lab. It provides the web interface, LXC containers, virtual machines, storage management, and snapshots.
 
 ## Key configuration
