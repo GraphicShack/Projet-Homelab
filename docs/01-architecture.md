@@ -1,6 +1,6 @@
 # Architecture
 
-## 🇨🇦 Français (Québec)
+## 🇨🇦 Français
 
 Le homelab utilise Proxmox VE comme couche de virtualisation. Les services légers sont séparés dans des LXC containers quand ça fait du sens, tandis que les environnements complets utilisent des VMs.
 
