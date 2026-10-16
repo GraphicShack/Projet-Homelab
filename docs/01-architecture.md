@@ -19,3 +19,18 @@ The homelab uses Proxmox VE as the virtualization layer. Services are separated 
 | Nginx Proxy Manager | LXC + Docker | Reverse proxy |
 | Homarr | LXC + Docker | Dashboard |
 | Windows 11 | VM | Windows lab environment |
+
+
+## Physical layer
+
+The Proxmox host is a repurposed desktop rather than purpose-built server hardware.
+
+Because a direct Ethernet run was not available at the original server location, the first version of the network relied on a wireless repeater / bridge feeding Ethernet to the host.
+
+This was functional, but it also created an important performance constraint for file transfers and photo access.
+
+```text
+Client -> Wi-Fi -> Router -> Wi-Fi -> Repeater -> Ethernet -> Proxmox
+```
+
+This is intentionally documented because it explains why some performance issues were network-related rather than CPU, RAM, or storage-related.
