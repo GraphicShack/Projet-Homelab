@@ -30,4 +30,10 @@ Tailscale provides private remote access without exposing SMB or management port
 
 **Fix:** Used the server's Tailscale address for direct access. Subnet routing was identified as the next step for reaching the entire home LAN remotely.
 
+## Remote-access verification
+
+![Sanitized Tailscale remote access test](../screenshots/tailscale-remote-access-redacted.jpg)
+
+This test was performed from another network. The successful ICMP replies confirmed that the Tailscale tunnel was working end-to-end. The Tailscale address and shell identity are redacted in the public screenshot.
+
 > Real Tailscale IP addresses and authentication details are not published.
