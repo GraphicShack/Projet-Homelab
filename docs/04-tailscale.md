@@ -1,6 +1,6 @@
 # Tailscale Remote Access
 
-## 🇨🇦 Français (Québec)
+## 🇨🇦 Français
 
 Tailscale sert à accéder au homelab à distance sans ouvrir directement Samba ou les interfaces de management sur Internet.
 
