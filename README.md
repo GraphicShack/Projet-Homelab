@@ -1,6 +1,23 @@
 # Proxmox Homelab
 
-## 🇨🇦 Français (Québec)
+## Table des matières / Table of contents
+
+- [🇨🇦 Français](#francais)
+- [🇬🇧 English](#english)
+- [Physical build / Montage physique](docs/00-physical-build.md)
+- [Architecture](docs/01-architecture.md)
+- [Proxmox VE](docs/02-proxmox.md)
+- [Ubuntu Server + Samba](docs/03-ubuntu-samba.md)
+- [Tailscale](docs/04-tailscale.md)
+- [AdGuard Home](docs/05-adguard-home.md)
+- [Nginx Proxy Manager](docs/06-nginx-proxy-manager.md)
+- [Homarr](docs/07-homarr.md)
+- [Windows 11 VM](docs/08-windows-vm.md)
+- [Troubleshooting](docs/09-troubleshooting.md)
+- [Project journal / Journal du projet](JOURNAL.md)
+
+<a id="francais"></a>
+## 🇨🇦 Français
 
 Projet de homelab personnel monté pour pratiquer la virtualisation, l’administration Linux, le networking, le self-hosting, l’accès à distance et des bases de cybersécurité.
 
@@ -138,6 +155,7 @@ Windows 11 roule dans Proxmox avec les informations réseau et utilisateur masqu
 
 ---
 
+<a id="english"></a>
 ## 🇬🇧 English
 
 # Proxmox Homelab
