@@ -1,6 +1,6 @@
 # AdGuard Home
 
-## 🇫🇷 Français
+## 🇨🇦 Français (Québec)
 
 AdGuard Home fait du network-level DNS filtering.
 
