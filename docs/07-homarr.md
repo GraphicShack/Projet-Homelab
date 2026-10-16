@@ -1,6 +1,6 @@
 # Homarr
 
-## 🇨🇦 Français (Québec)
+## 🇨🇦 Français
 
 Homarr sert de dashboard central pour les services du homelab.
 
