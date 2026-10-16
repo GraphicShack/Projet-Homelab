@@ -4,6 +4,12 @@ A personal homelab built to practice virtualization, Linux administration, netwo
 
 > **Public-repo note:** IP addresses, credentials, API tokens, certificates, and other sensitive values are intentionally omitted or replaced with examples.
 
+## From old desktop to homelab
+
+This project started by repurposing an older desktop tower into a dedicated Proxmox server. Before the software stack existed, the build involved solving physical-network constraints, enabling hardware virtualization in BIOS, integrating external storage, and working around the lack of a direct Ethernet run.
+
+[Read the physical build story](docs/00-physical-build.md)
+
 ## What is running
 
 - **Proxmox VE** — hypervisor and central management
@@ -52,6 +58,7 @@ flowchart TD
 
 ## Documentation
 
+- [Physical build & early setup](docs/00-physical-build.md)
 - [Architecture](docs/01-architecture.md)
 - [Proxmox setup](docs/02-proxmox.md)
 - [Ubuntu file server](docs/03-ubuntu-samba.md)
