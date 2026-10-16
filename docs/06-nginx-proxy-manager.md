@@ -45,3 +45,15 @@ service.example.internal
         -> Nginx Proxy Manager
         -> backend-service:port
 ```
+
+## Result
+
+![Nginx Proxy Manager dashboard](../screenshots/nginx-proxy-manager-dashboard.png)
+
+The management interface confirms that the service is running and ready to manage proxy hosts.
+
+## Proxy host example
+
+![Sanitized proxy host configuration](../screenshots/nginx-proxy-host-redacted.jpg)
+
+This public-safe screenshot shows the structure of a proxy host configuration while hiding the real backend IP address.
