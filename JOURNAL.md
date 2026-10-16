@@ -1,5 +1,100 @@
 # Homelab Journal
 
+## 🇫🇷 Français
+
+Ce fichier suit l’évolution du projet. Le but n’est pas juste de montrer ce qui marche, mais aussi ce qui a cassé, pourquoi, et comment je l’ai réglé.
+
+## Phase 0 — Transformer un vieux desktop en serveur
+
+Avant que Proxmox soit réellement utile, il fallait déjà que le matériel devienne un serveur qui peut rouler en continu.
+
+- recyclage d’un vieux desktop au lieu d’acheter du hardware dédié;
+- utilisation d’un NVMe interne pour Proxmox et le storage des VMs/LXC;
+- pas de câble Ethernet direct disponible près du serveur;
+- réflexion autour d’un Wi-Fi adapter, powerline et d’un repeater/bridge;
+- activation de Intel VMX / VT-x dans le BIOS après une erreur KVM;
+- ajout d’un external drive pour le futur Samba file server;
+- constat assez rapide que le placement physique et le réseau peuvent être le bottleneck même si le serveur lui-même va bien.
+
+### Ce que j’ai retenu
+Le hardware et le réseau physique comptent autant que la config software. Avoir plus de CPU ou de RAM ne règle pas un uplink Wi-Fi faible.
+
+## Phase 1 — Base Proxmox
+
+- installation de Proxmox VE;
+- activation de hardware virtualization dans le BIOS;
+- configuration d’une adresse de management fixe sur le LAN;
+- création des premiers LXC containers et VMs.
+
+### Ce que j’ai retenu
+Un hypervisor peut être parfaitement en santé mais quand même inaccessible si l’interface réseau ou le bridge est mal configuré. Les commandes `ip -br link`, `ip -br addr` et `ip route` sont devenues mes premiers réflexes.
+
+## Phase 2 — Ubuntu file server
+
+- création d’un Ubuntu Server LXC;
+- montage du storage externe;
+- configuration de Samba;
+- tests à partir de macOS et Android.
+
+### Ce que j’ai retenu
+Les permissions Linux et le UID/GID mapping deviennent importants dès qu’on bind-mount du storage dans un unprivileged LXC.
+
+## Phase 3 — Accès à distance
+
+- installation de Tailscale sur Ubuntu Server;
+- ajout de `/dev/net/tun` au LXC;
+- validation de l’accès à partir d’un autre réseau;
+- accès au Samba share via le réseau privé Tailscale.
+
+### Ce que j’ai retenu
+Un service peut écouter correctement sur un port mais rester inaccessible à cause du routing, des ACLs ou des restrictions du container.
+
+## Phase 4 — DNS filtering
+
+- déploiement d’AdGuard Home;
+- configuration des clients pour utiliser AdGuard comme DNS;
+- validation des requêtes directement dans le dashboard.
+
+### Ce que j’ai retenu
+Installer un DNS filter ne suffit pas. Si les clients ne l’utilisent pas, le dashboard reste à zéro et rien n’est filtré.
+
+## Phase 5 — Reverse proxy
+
+- création d’un LXC dédié à Nginx Proxy Manager;
+- installation de Docker et Docker Compose;
+- déploiement de Nginx Proxy Manager;
+- début de l’utilisation de hostnames plus propres au lieu de mémoriser chaque IP:port.
+
+### Highlight de troubleshooting
+Le LXC avait seulement une IPv6 link-local address et aucune route IPv4 utilisable. Activer IPv4 DHCP sur `net0` a réglé `Network is unreachable` ainsi que les erreurs de package download.
+
+## Phase 6 — Dashboard
+
+- déploiement de Homarr;
+- intégration de Proxmox et des autres services;
+- troubleshooting des Proxmox API tokens et de la confiance du certificat TLS.
+
+## Phase 7 — Windows lab VM
+
+- création d’une Windows 11 VM;
+- chargement des VirtIO storage drivers;
+- installation sur un virtual disk VirtIO;
+- utilisation comme environnement Windows pour les labs.
+
+## Prévu ensuite
+
+- Uptime Kuma
+- Immich
+- meilleure stratégie de backup
+- monitoring cybersécurité / expériences SIEM
+- plus d’automation et de documentation
+
+---
+
+## 🇬🇧 English
+
+# Homelab Journal
+
 This file tracks the project as it evolves. It focuses on what was built, what failed, and what was learned.
 
 ## Phase 0 — Turning an old desktop into a server
