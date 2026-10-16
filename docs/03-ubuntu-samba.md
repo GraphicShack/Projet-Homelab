@@ -1,5 +1,67 @@
 # Ubuntu Server + Samba
 
+## 🇫🇷 Français
+
+Le Ubuntu Server LXC sert principalement de file server.
+
+## Problèmes rencontrés
+
+### 1. Le dossier partagé `/data` n’existait pas
+
+**Symptôme :** une commande comme `chown -R ... /data` retournait `No such file or directory`.
+
+**Ce que ça voulait dire :** le mount point n’était pas encore créé ou le storage n’était pas monté au bon endroit.
+
+**Fix :** création du dossier, vérification du mount sur le host, puis passage du storage dans le LXC.
+
+**Ce que j’ai retenu :** avant de jouer avec les permissions, vérifier que le path existe réellement et que le bon disk est monté.
+
+### 2. Les permissions exFAT ne se comportaient pas comme sur un filesystem Linux normal
+
+**Symptôme :** owner et permissions ne réagissaient pas comme prévu.
+
+**Ce que ça voulait dire :** exFAT ne stocke pas les permissions Linux de la même façon. Il faut définir le ownership au moment du mount avec `uid`, `gid` et `umask`.
+
+**Fix :** mount avec le bon UID/GID mapping pour le unprivileged LXC.
+
+**Ce que j’ai retenu :** le type de filesystem change complètement la façon de diagnostiquer les permissions.
+
+### 3. Le UID/GID mapping du LXC causait des problèmes d’accès
+
+**Symptôme :** les fichiers étaient visibles mais pas toujours writable dans Ubuntu.
+
+**Ce que ça voulait dire :** un unprivileged LXC remap les user IDs. Le UID 1000 dans le container n’est pas représenté pareil sur le host.
+
+**Fix :** ajustement des mount options pour que les fichiers apparaissent avec le bon owner dans le LXC.
+
+### 4. Samba marchait localement mais l’accès remote/mobile était moins simple
+
+**Symptôme :** le share fonctionnait sur le LAN mais était plus difficile à joindre à partir d’un autre appareil ou réseau.
+
+**Ce que ça voulait dire :** Samba lui-même fonctionnait; le problème restant était surtout du network reachability.
+
+**Fix :** vérification que `smbd` écoutait bien sur TCP 445, puis utilisation de Tailscale pour l’accès privé à distance.
+
+Exemple de share public-safe :
+
+```ini
+[data]
+    path = /data
+    valid users = example-user
+    browseable = yes
+    writable = yes
+    read only = no
+    guest ok = no
+```
+
+Les vrais usernames, passwords et network ACLs ne sont pas publiés.
+
+---
+
+## 🇬🇧 English
+
+# Ubuntu Server + Samba
+
 The Ubuntu Server LXC acts as the main file server.
 
 ## Problems encountered
