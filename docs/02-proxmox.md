@@ -1,6 +1,6 @@
 # Proxmox VE
 
-## 🇨🇦 Français (Québec)
+## 🇨🇦 Français
 
 Proxmox VE est la base du lab. Il gère l’interface web, les LXC containers, les VMs, le storage et les snapshots.
 
