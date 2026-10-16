@@ -1,5 +1,43 @@
 # AdGuard Home
 
+## 🇫🇷 Français
+
+AdGuard Home fait du network-level DNS filtering.
+
+## Problèmes rencontrés
+
+### 1. AdGuard roulait mais montrait zéro requête DNS
+
+**Symptôme :** le dashboard restait à 0 et les pubs étaient encore visibles.
+
+**Ce que ça voulait dire :** AdGuard allait bien, mais le Mac/browser utilisait encore un autre DNS resolver.
+
+**Fix :** changement du DNS du client vers AdGuard, puis validation des requêtes dans le dashboard.
+
+**Ce que j’ai retenu :** installer un DNS server ne sert à rien tant que les clients ne l’utilisent pas réellement.
+
+### 2. Secure DNS du browser pouvait bypass le resolver local
+
+**Symptôme :** une partie du trafic pouvait encore éviter AdGuard même après avoir changé le DNS dans l’OS.
+
+**Ce que ça voulait dire :** certains browsers utilisent DNS-over-HTTPS indépendamment du système.
+
+**Fix :** vérification du réglage Secure DNS pendant les tests.
+
+### 3. Certaines pubs restent visibles même quand AdGuard fonctionne
+
+**Symptôme :** des pubs pouvaient encore apparaître sur Reddit ou YouTube.
+
+**Ce que ça voulait dire :** un DNS blocker peut bloquer un domaine complet, mais pas toujours différencier une pub et du contenu normal servis à partir du même domaine.
+
+**Ce que j’ai retenu :** DNS filtering et browser content blocking ne règlent pas exactement le même problème.
+
+---
+
+## 🇬🇧 English
+
+# AdGuard Home
+
 AdGuard Home provides network-level DNS filtering.
 
 ## Problems encountered
