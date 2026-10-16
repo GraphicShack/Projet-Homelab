@@ -1,6 +1,6 @@
 # Nginx Proxy Manager
 
-## 🇫🇷 Français
+## 🇨🇦 Français (Québec)
 
 Nginx Proxy Manager donne une interface graphique pour gérer les reverse proxies.
 
