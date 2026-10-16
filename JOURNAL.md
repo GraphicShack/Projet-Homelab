@@ -1,6 +1,6 @@
 # Homelab Journal
 
-## 🇫🇷 Français
+## 🇨🇦 Français (Québec)
 
 Ce fichier suit l’évolution du projet. Le but n’est pas juste de montrer ce qui marche, mais aussi ce qui a cassé, pourquoi, et comment je l’ai réglé.
 
