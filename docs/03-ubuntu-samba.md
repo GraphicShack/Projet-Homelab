@@ -1,6 +1,6 @@
 # Ubuntu Server + Samba
 
-## 🇫🇷 Français
+## 🇨🇦 Français (Québec)
 
 Le Ubuntu Server LXC sert principalement de file server.
 
