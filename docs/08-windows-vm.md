@@ -26,6 +26,10 @@ vioscsi -> w11 -> amd64
 
 The virtual disk then appeared and installation could continue.
 
+![Windows 11 VirtIO driver selection](../screenshots/windows11-virtio-storage-driver.jpg)
+
+This is the driver-loading stage of Windows Setup. After the correct VirtIO storage driver was loaded, Windows could detect the virtual disk.
+
 **Lesson learned:** VirtIO gives better virtualization performance, but Windows often needs the driver during installation.
 
 ### 3. Proxmox did not display the Windows IP address
@@ -37,6 +41,10 @@ The virtual disk then appeared and installation could continue.
 **Workaround:** Ran `ipconfig` inside Windows.
 
 **Planned fix:** Install and enable QEMU Guest Agent so Proxmox can display guest information directly.
+
+![Sanitized Windows 11 VM](../screenshots/windows11-vm-running-redacted.jpg)
+
+The VM was running correctly and had network connectivity. The username and network-identifying values are hidden in the public screenshot.
 
 ### 4. Memory usage reached 100%
 
