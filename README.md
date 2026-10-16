@@ -1,6 +1,6 @@
 # Proxmox Homelab
 
-## 🇫🇷 Français
+## 🇨🇦 Français (Québec)
 
 Projet de homelab personnel monté pour pratiquer la virtualisation, l’administration Linux, le networking, le self-hosting, l’accès à distance et des bases de cybersécurité.
 
