@@ -2,6 +2,21 @@
 
 This file tracks the project as it evolves. It focuses on what was built, what failed, and what was learned.
 
+## Phase 0 — Turning an old desktop into a server
+
+Before Proxmox was useful, the hardware itself had to become a practical always-on server.
+
+- Repurposed an older desktop tower instead of buying dedicated server hardware.
+- Used an internal NVMe drive for the Proxmox installation and VM/container storage.
+- Worked around the lack of a direct Ethernet run near the server.
+- Considered Wi-Fi adapters, powerline networking, and a repeater/bridge solution.
+- Enabled Intel VMX / VT-x in BIOS after Proxmox reported that hardware-accelerated KVM was unavailable.
+- Integrated external storage for the future Samba file server.
+- Learned quickly that network placement and physical topology can bottleneck an otherwise healthy server.
+
+### Lesson learned
+The physical layer matters. CPU, RAM, and software configuration are only part of a homelab; network quality, storage interfaces, BIOS settings, and where the machine physically lives can be just as important.
+
 ## Phase 1 — Proxmox foundation
 
 - Installed Proxmox VE on a dedicated desktop.
