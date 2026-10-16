@@ -1,6 +1,6 @@
 # Physical Build & Early Setup
 
-## 🇨🇦 Français (Québec)
+## 🇨🇦 Français
 
 Avant les containers, les reverse proxies et les dashboards, le vrai premier problème était pas mal plus simple : transformer un vieux desktop en serveur qui pouvait réellement être utilisé comme homelab.
 
