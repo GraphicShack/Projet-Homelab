@@ -1,5 +1,51 @@
 # Homarr
 
+## 🇫🇷 Français
+
+Homarr sert de dashboard central pour les services du homelab.
+
+## Problèmes rencontrés
+
+### 1. Le LXC Homarr avait temporairement plusieurs IPv4
+
+**Symptôme :** `ip -br addr` affichait plus d’une IPv4 sur la même interface.
+
+**Ce que ça voulait dire :** il y avait de l’adressage dynamique qui se chevauchait, donc c’était moins clair quelle IP utiliser.
+
+**Approche :** utilisation de l’adresse qui fonctionnait pour continuer le setup, avec l’idée de nettoyer l’adressage ou faire une reservation plus tard.
+
+### 2. L’intégration Proxmox échouait à cause du certificat TLS
+
+**Symptôme :** Homarr retournait une erreur comme `UNABLE_TO_VERIFY_LEAF_SIGNATURE`.
+
+**Ce que ça voulait dire :** Proxmox utilise un certificat signé par sa propre CA interne, que Homarr ne trust pas par défaut.
+
+**Fix :** export du Proxmox root CA certificate puis ajout dans Homarr.
+
+**Ce que j’ai retenu :** mieux vaut réparer la trust chain correctement que désactiver la validation TLS juste pour que ça marche.
+
+### 3. Ensuite, l’intégration échouait avec une erreur d’autorisation
+
+**Symptôme :** après avoir réglé TLS, Homarr arrivait à joindre Proxmox mais recevait une authorization error.
+
+**Ce que ça voulait dire :** la connectivité et le certificat étaient maintenant corrects, mais le API token n’avait pas assez de permissions.
+
+**Fix :** création d’un user/token Proxmox dédié avec le rôle read-only `PVEAuditor`.
+
+**Ce que j’ai retenu :** authentication et authorization sont deux choses différentes. Un token valide peut quand même ne pas avoir le droit de lire une ressource.
+
+## Troubleshooting de l’autorisation
+
+![Sanitized Homarr Proxmox authorization troubleshooting](../screenshots/homarr-proxmox-authorization-redacted.jpg)
+
+À ce moment-là, TLS était déjà réglé. L’erreur restante pointait donc clairement vers les permissions du API token. Les informations sensibles sont masquées.
+
+---
+
+## 🇬🇧 English
+
+# Homarr
+
 Homarr provides a centralized dashboard for homelab services.
 
 ## Problems encountered
